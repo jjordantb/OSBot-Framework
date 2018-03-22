@@ -42,4 +42,7 @@ public class NodeModuleHandler {
         }
     }
 
+    public LinkedList<NodeModule> getNodeModules() {
+        return nodeModules;
+    }
 }

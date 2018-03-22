@@ -31,11 +31,6 @@ public class Main extends ParaScript implements SkillListener, Painter {
     }
 
     @Override
-    public boolean canAfk() {
-        return true;
-    }
-
-    @Override
     public int onLoop() throws InterruptedException {
         if (inventory.contains("Nature rune", "Law rune", "Yew longbow")) {
             final int anim = myPlayer().getAnimation();

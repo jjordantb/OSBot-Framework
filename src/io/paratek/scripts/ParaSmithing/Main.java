@@ -22,11 +22,6 @@ public class Main extends ParaScript implements Painter {
     }
 
     @Override
-    public boolean canAfk() {
-        return false;
-    }
-
-    @Override
     public void onPaint(Graphics2D g) {
         g = (Graphics2D) g.create();
         g.setStroke(new BasicStroke(0.5f));

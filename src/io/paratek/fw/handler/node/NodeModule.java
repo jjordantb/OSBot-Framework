@@ -1,5 +1,6 @@
 package io.paratek.fw.handler.node;
 
+import io.paratek.api.listeners.Listener;
 import io.paratek.fw.ParaScript;
 import io.paratek.fw.util.Condition;
 
@@ -23,6 +24,9 @@ public abstract class NodeModule {
 
     public void register(final Node node) {
         this.nodes.add(node);
+        if (node instanceof Listener) {
+            this.ctx.getEventDispatcher().submitListener((Listener) node);
+        }
     }
 
     public void remove(final Node node) {
@@ -45,4 +49,7 @@ public abstract class NodeModule {
         this.shouldStop = stopAt;
     }
 
+    public LinkedList<Node> getNodes() {
+        return nodes;
+    }
 }

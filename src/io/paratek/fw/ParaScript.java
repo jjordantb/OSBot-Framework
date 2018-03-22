@@ -19,7 +19,6 @@ public abstract class ParaScript extends Script {
 
     private final Timer timer = new Timer();
     private final StatisticContainer statisticContainer = new StatisticContainer();
-    private final AfkHandler afkHandler = new AfkHandler(timer);
     private final NodeModuleHandler moduleHandler = new NodeModuleHandler(this);
 
     public ParaScript() {
@@ -69,14 +68,8 @@ public abstract class ParaScript extends Script {
         return eventDispatcher;
     }
 
-    public AfkHandler getAfkHandler() {
-        return afkHandler;
-    }
-
     public Timer getTimer() {
         return timer;
     }
-
-    public abstract boolean canAfk();
 
 }

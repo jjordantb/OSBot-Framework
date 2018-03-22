@@ -19,9 +19,4 @@ public class Main extends ParaScript {
         getStatistics().register("XP", RuntimeStatistic.init(0));
     }
 
-    @Override
-    public boolean canAfk() {
-        return false;
-    }
-
 }
