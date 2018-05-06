@@ -7,7 +7,7 @@ import io.paratek.fw.handler.node.Node;
  * @author Parametric on 3/22/2018
  * @project OSBot-Framework
  */
-public class BankingNode extends StringingNode {
+public class BankingNode {
 
 
 

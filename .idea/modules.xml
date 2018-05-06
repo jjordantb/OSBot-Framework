@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OSBot-Framework.iml" filepath="$PROJECT_DIR$/OSBot-Framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paratutorial/paratutorial.iml" filepath="$PROJECT_DIR$/paratutorial/paratutorial.iml" />
     </modules>
   </component>
 </project>

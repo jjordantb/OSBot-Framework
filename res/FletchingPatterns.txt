@@ -1,0 +1,6 @@
+Fletching Framework Req
+
+Withdraw 14 u, 14 string, rarely 14 string then 14 u, missclick 14 u then withdraw 14 string, then 14 u
+Miss click the 14 and with draw 10 u, then with draw 14 string, and with draw 5 - 10 - all
+Slot interaction - collect data? cause idk
+Reaction time's still log normal distribution

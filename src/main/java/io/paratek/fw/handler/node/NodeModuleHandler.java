@@ -34,6 +34,7 @@ public class NodeModuleHandler {
                 this.ctx.log("Setting New Module");
             } else {
                 this.ctx.log("All Modules Complete, Stopping.");
+                this.ctx.stop();
             }
         } else {
             if (this.current.run()) {

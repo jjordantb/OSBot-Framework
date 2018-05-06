@@ -1,0 +1,13 @@
+Jungle Potion 175
+Started Quest, get snake weed - 1
+Got Herb, hand in - 2
+Get ardrigal - 3
+Got ardrigal, hand in - 4
+Handed in ardrigal, get sito foil - 5
+got sit foil, hand in - 6
+handed in sito foil, get Volenica Moss - 7
+got moss, hand in - 8
+handed in moss, get purse, climb down - 9
+got purse, climb up- 10
+handed in purse - 11
+quest complete 12

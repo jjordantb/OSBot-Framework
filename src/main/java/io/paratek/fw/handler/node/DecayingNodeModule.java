@@ -12,15 +12,18 @@ public class DecayingNodeModule extends NodeModule {
 
     public DecayingNodeModule(ParaScript ctx) {
         super(ctx);
+        super.shouldStop = () -> nodes.size() == 0;
     }
 
     @Override
     public boolean run() throws InterruptedException {
-        final Iterator<Node> nodeIterator = super.nodes.iterator();
-        while (nodeIterator.hasNext()) {
-            final Node current = nodeIterator.next();
-            if (current.activate(super.ctx) && current.execute(super.ctx)) {
-                nodeIterator.remove();
+        while (super.nodes.size() > 0 && ctx.getBot().getScriptExecutor().isRunning()) {
+            final Iterator<Node> nodeIterator = super.nodes.iterator();
+            while (nodeIterator.hasNext()) {
+                final Node current = nodeIterator.next();
+                if (current.activate(super.ctx) && current.execute(super.ctx)) {
+                    nodeIterator.remove();
+                }
             }
         }
         return shouldStop.validate() || nodes.size() <= 0;

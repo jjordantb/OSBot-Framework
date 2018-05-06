@@ -1,0 +1,67 @@
+Clue Data Dump - 203, 2
+
+"Search a wardrobe in Draynor." 
+	Tile@[3087, 3260, 0] "Wardrobe" -> "Open" "ID:5622"
+
+"Spin at the crossroads north<br>of Rimmington.<br>Equip a green gnome hat, cream<br>gnome top and leather chaps."
+	"Green hat (B), Cream rob top, leather chaps Tile@[2981, 3276,0]
+	
+"Speak to Doric, who<br>lives north of Falador."
+	Tile@[2951, 3451, 0] "Doric" -> "Talk-to"
+	
+"Search the boxes of<br>Falador's general store."
+	Tile@[2955, 3389, 0] "Crates" -> "Search"
+	
+"Headbang in the mine<br>north of Al Kharid.<br>Equip a desert shirt, leather<br>gloves and leather boots."
+	Tile@[3300, 3316, 0]
+	
+"Blow a raspberry at the<br>monkey cage in Ardougne Zoo.<br>Equip a studded leather body, bronze<br>platelegs and a normal staff<br>with no orb."
+	Tile@[2607, 3284, 0]
+	
+"Shrug in the mine near Rimmington.<br>Equip a gold necklace,<br>a gold ring and a bronze<br>spear."
+	Tile@[2975, 3239, 0]
+	
+"One of the sailors<br>in Port Sarim is your<br>next destination."
+	Tile@[3027, 3218, 0] "Captain Tobias" -> "Talk-to"
+	
+"Search the crates in the<br>Port Sarim Fishing shop."
+	Tile@[3013, 3222, 0] "Crate" -> "Search"
+
+"Speak to Sarah at Falador farm."	
+	Tile@[3036, 3294, 0] "Sarah" -> "Talk-to"
+
+"Bow outside the entrance to<br>the Legends' Guild.<br>Equip iron platelegs, an<br>emerald amulet and an oak<br>longbow."
+	Tile@[2729, 3348, 0]
+
+"Talk to Ermin."
+	Tile@[2489, 3409, 1] "Ermin" -> "Talk-to"
+	
+"Search the drawers in<br>Falador's chain mail shop."
+	Tile@[2970, 3311, 0] "Drawer" -> "Search" -> "Open"
+
+"Search the boxes in<br>a shop in Taverley."
+	Tile@[2886, 3450, 0] Search Boxes
+
+"Panic in the Limestone Mine.<br>Equip bronze platelegs, a<br>steel pickaxe and a steel<br>medium helmet."	
+	Tile 3372, 3498, 0
+	
+"Talk to the barber in the Falador barber shop."
+	Tile 2944, 3379, 0 "Hairdresser" 
+
+"Talk to Zeke in Al Kharid."
+	3287, 3189, 0
+	
+MAPS with X - 356, 7 - requires spade, 346, 43
+	
+Pos - 324, 70
+	3166, 3360, 0
+
+Position(254, 178)
+	- Tile@[3110, 3152, 0]
+	
+Maps with big x - 87, 47
+
+Position(236, 196)
+
+
+	

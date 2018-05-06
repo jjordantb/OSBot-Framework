@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="osbot">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/osbot.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/osbot.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
