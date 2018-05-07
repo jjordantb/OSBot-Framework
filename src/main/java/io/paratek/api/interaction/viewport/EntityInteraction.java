@@ -2,6 +2,7 @@ package io.paratek.api.interaction.viewport;
 
 import io.paratek.api.util.Execution;
 import io.paratek.fw.ParaScript;
+import io.paratek.fw.util.Condition;
 import org.osbot.rs07.api.map.Position;
 import org.osbot.rs07.api.model.Entity;
 import org.osbot.rs07.api.model.Player;
@@ -21,9 +22,9 @@ public class EntityInteraction {
     private final int sleepTime;
 
     private final Entity entity;
-    private final Callable<Boolean> validate;
+    private final Condition validate;
 
-    public EntityInteraction(String action, int sleepTime, Entity entity, Callable<Boolean> validate) {
+    public EntityInteraction(String action, int sleepTime, Entity entity, Condition validate) {
         this.action = action;
         this.sleepTime = sleepTime;
         this.entity = entity;
@@ -32,12 +33,8 @@ public class EntityInteraction {
 
     public boolean execute(final ParaScript ctx) {
         if (entity != null) {
-            try {
-                if (this.validate.call()) {
-                    return true;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (this.validate.validate()) {
+                return true;
             }
             if (attempts >= 5) {
                 ctx.camera.toEntity(entity);
@@ -46,19 +43,15 @@ public class EntityInteraction {
             if (entity.isVisible() && entity.getPosition().distance(ctx.myPlayer()) <= 20) {
                 if (this.interaction(this.entity, this.action)) {
                     ctx.log("[EntityInteraction] Interaction: " + this.action + " -> " + this.entity.toString());
-                    Execution.delayUntil(this.validate, this.sleepTime);
-                    try {
-                        if (this.validate.call()) {
-                            return true;
-                        } else {
-                            if (ctx.myPlayer().isMoving()) {
-                                while (ctx.myPlayer().isMoving()) {
-                                    Execution.delayUntil(this.validate, 250);
-                                }
+                    Execution.delayUntil(this.validate::validate, this.sleepTime);
+                    if (this.validate.validate()) {
+                        return true;
+                    } else {
+                        if (ctx.myPlayer().isMoving()) {
+                            while (ctx.myPlayer().isMoving()) {
+                                Execution.delayUntil(this.validate::validate, 250);
                             }
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
                 } else {
                     ctx.log("[EntityInteraction] Failure Detected (Attempts: " + this.attempts + ")");

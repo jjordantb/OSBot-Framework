@@ -9,8 +9,9 @@ import org.osbot.PA;
  */
 public enum TutorialState {
 
+    TALK_TO_GUIDE(0),
     OPEN_OPTIONS(3),
-    TALK_TO_GUIDE(7),
+    TALK_TO_GUIDE_2(7),
     STARTING_DOOR(10),
     TALK_SURVIVAL_EXPERT(20),
     OPEN_INVENTORY(30),
@@ -45,7 +46,13 @@ public enum TutorialState {
     MINE_COPPER(310),
     MAKE_BRONZE_BAR(320),
     TALK_MINER_3(330),
-    USE_BAR_ANVIL(340);
+    USE_BAR_ANVIL(340),
+    SMITH_DAGGER(350),
+    OPEN_MINE_GATE(360),
+    TALK_CB_INST(370),
+    OPEN_EQUIPMENT(390),
+    OPEN_WORN(400),
+    CLOSE_EQUIPMENT_STATS(405);
 
     private final int state;
     public static final int PARENT_STATE = 281;
