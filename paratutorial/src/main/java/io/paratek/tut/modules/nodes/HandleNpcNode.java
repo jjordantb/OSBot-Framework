@@ -29,7 +29,8 @@ public class HandleNpcNode implements Node {
             if ((actual = (NPC) ctx.hintArrow.getEntity()) != null) {
                 if (actual.isVisible()) {
                     if (!ctx.myPlayer().isMoving()) {
-                        if (actual.interact()) {
+                        String action = actual.getActions().length > 0 ? actual.getActions()[0] : "";
+                        if (actual.interact(action)) {
                             Execution.delayUntil(() -> !ctx.hintArrow.isActive() || !ctx.hintArrow.getPosition().equals(start), 1500, 2500);
                         }
                     }

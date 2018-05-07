@@ -2,6 +2,8 @@ package io.paratek.tut.modules;
 
 import io.paratek.fw.ParaScript;
 import io.paratek.fw.handler.node.NodeModule;
+import io.paratek.tut.modules.n_nodes.HandleDialogNode;
+import io.paratek.tut.modules.n_nodes.RandomizeAppearanceNode;
 import io.paratek.tut.modules.nodes.*;
 
 /**
@@ -16,6 +18,9 @@ public class TutorialModule extends NodeModule {
 
         super.register(new MakeFireNode());
         super.register(new CookNode());
+        super.register(new MakeBreadNode());
+        super.register(new DoEmoteNode());
+        super.register(new EnableRunNode());
         super.register(new OpenTabNode());
 
         super.register(new HandleDialogNode());

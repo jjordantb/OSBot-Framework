@@ -1,4 +1,4 @@
-package io.paratek.tut.modules.nodes;
+package io.paratek.tut.modules.n_nodes;
 
 import io.paratek.api.util.Execution;
 import io.paratek.api.util.Random;

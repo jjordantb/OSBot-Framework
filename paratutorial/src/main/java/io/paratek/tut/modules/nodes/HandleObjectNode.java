@@ -1,10 +1,14 @@
 package io.paratek.tut.modules.nodes;
 
+import io.paratek.api.interaction.viewport.EntityInteraction;
 import io.paratek.api.util.Execution;
+import io.paratek.api.util.Random;
 import io.paratek.fw.ParaScript;
 import io.paratek.fw.handler.node.Node;
+import io.paratek.tut.util.TutorialState;
 import org.osbot.rs07.api.HintArrow;
 import org.osbot.rs07.api.map.Position;
+import org.osbot.rs07.api.model.Item;
 import org.osbot.rs07.api.model.RS2Object;
 
 import java.util.List;
@@ -29,29 +33,40 @@ public class HandleObjectNode implements Node {
             if ((objects = ctx.objects.get(arrow.getX(), arrow.getY())) != null && objects.size() > 0) {
                 for (RS2Object o : objects) {
                     if (o.getUID() > 0) {
-                        final String name = o.getName();
-
-                        final RS2Object actual;
-                        if ((actual = ctx.objects.closest(name)) != null) {
-                            if (actual.isVisible()) {
-                                if (!ctx.myPlayer().isMoving()) {
-                                    if (actual.interact()) {
-                                        Execution.delayUntil(() -> !ctx.hintArrow.isActive() || !ctx.hintArrow.getPosition().equals(arrow), 1500, 2500);
-                                    }
+                        if (o.getName().equals("Furnace")) {
+                            if (ctx.inventory.isItemSelected()) {
+                                if (ctx.inventory.getSelectedItemName().equals("Copper ore")) {
+                                    interact(o, ctx);
+                                } else {
+                                    ctx.inventory.deselectItem();
                                 }
                             } else {
-                                if (actual.getPosition().distance(ctx.myPosition()) > 8) {
-                                    ctx.walking.webWalk(actual.getPosition());
-                                } else {
-                                    ctx.camera.toEntity(actual);
+                                final Item i;
+                                if ((i = ctx.inventory.getItem("Copper ore")) != null) {
+                                    if (i.interact()) {
+                                        Execution.delayUntil(() -> ctx.inventory.isItemSelected(), 1500, 2500);
+                                    }
                                 }
                             }
+                        } else {
+                            this.interact(o, ctx);
                         }
                     }
                 }
             }
         }
         return false;
+    }
+
+    private void interact(final RS2Object o, final ParaScript ctx) {
+        int start = ctx.configs.get(TutorialState.PARENT_STATE);
+        String action = o.getActions()[0];
+        if (ctx.widgets.getWidgetContainingText("Prospecting") != null) {
+            action = "Prospect";
+        }
+        new EntityInteraction(action, Random.nextInt(1500, 2500), o,
+                () -> start != ctx.configs.get(TutorialState.PARENT_STATE))
+                .execute(ctx);
     }
 
 }

@@ -17,18 +17,28 @@ public class OpenTabNode implements Node {
     public boolean activate(ParaScript ctx) {
         return TutorialState.OPEN_OPTIONS.isState(ctx) ||
                 TutorialState.OPEN_SKILLS.isState(ctx) ||
-                TutorialState.OPEN_INVENTORY.isState(ctx);
+                TutorialState.OPEN_INVENTORY.isState(ctx) ||
+                TutorialState.OPEN_MUSIC.isState(ctx) ||
+                TutorialState.OPEN_EMOTE.isState(ctx) ||
+                TutorialState.OPEN_OPTIONS_2.isState(ctx) ||
+                TutorialState.OPEN_QUEST.isState(ctx);
     }
 
     @Override
     public boolean execute(ParaScript ctx) throws InterruptedException {
         System.out.println("TABB");
-        if (TutorialState.OPEN_OPTIONS.isState(ctx)) {
+        if (TutorialState.OPEN_OPTIONS.isState(ctx) || TutorialState.OPEN_OPTIONS_2.isState(ctx)) {
             run(ctx, 35);
         } else if (TutorialState.OPEN_INVENTORY.isState(ctx)) {
             run(ctx, 51);
         } else if (TutorialState.OPEN_SKILLS.isState(ctx)) {
             run(ctx, 49);
+        } else if (TutorialState.OPEN_MUSIC.isState(ctx)) {
+            run(ctx, 37);
+        } else if (TutorialState.OPEN_EMOTE.isState(ctx)) {
+            run(ctx, 36);
+        } else if (TutorialState.OPEN_QUEST.isState(ctx)) {
+            run(ctx, 50);
         }
         return false;
     }
